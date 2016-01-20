@@ -91,6 +91,11 @@ eagle.helper = function(alt,n,xFull,xNull,s){
 
   stopifnot( !is.nan(s$normalised.depth))
   
+  ## make sure input lists match
+  if(length(alt)!=length(n)) stop("alt != n length")
+  if(length(alt)!=length(xFull)) stop("alt != xFull length")
+  if(length(alt)!=length(xNull)) stop("alt != xNull length")
+  
   if (any(sapply(alt,function(g) any(is.na(g))))) stop("NAs not allowed in alt, please remove these elements.")
   if (any(sapply(n,function(g) any(is.na(g))))) stop("NAs not allowed in n, please remove these elements.")
   if (any(sapply(xFull,function(g) any(is.na(g))))) stop("NAs not allowed in xFull, please remove these elements.")
